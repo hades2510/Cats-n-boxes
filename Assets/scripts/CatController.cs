@@ -5,7 +5,7 @@ namespace CatsBoxes
 {
 	public class CatController : MonoBehaviour {
 
-		public const float NORMAL_RUN_STEP = 0.01f;
+		public const float NORMAL_RUN_STEP = 1f;
 		private const string RunAnimation = "A_run";
 		private const string JumpAnimation = "A_jump_all";
 		private const string SlideAnimation = "A_play";
@@ -27,7 +27,7 @@ namespace CatsBoxes
 
 		private void jumpAnimationFinished()
 		{
-			animation.Play (RunAnimation);
+			animation.CrossFade (RunAnimation);
 			animation.wrapMode = WrapMode.Loop;
 		}
 
