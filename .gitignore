@@ -1,0 +1,11 @@
+ProjectSettings/ProjectSettings.asset
+Temp
+Library
+*.csproj
+*.sln
+*.pidb
+*.apk
+*.userprefs
+*.unitypackage
+*.unityproj
+**/*.DS_Store
