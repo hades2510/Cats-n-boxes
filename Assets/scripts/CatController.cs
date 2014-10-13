@@ -5,7 +5,7 @@ namespace CatsBoxes
 {
 	public class CatController : MonoBehaviour {
 
-		public const float NORMAL_RUN_STEP = 0.02f;
+		public const float NORMAL_RUN_STEP = 0.01f;
 		private const string RunAnimation = "A_run";
 		private const string JumpAnimation = "A_jump_all";
 		private const string SlideAnimation = "A_play";
@@ -49,7 +49,8 @@ namespace CatsBoxes
 		// Update is called once per frame
 		void Update () {
 			var tr = gameObject.transform.parent.transform.localPosition;
-			tr.z += NORMAL_RUN_STEP;
+
+			tr.z += Time.deltaTime*NORMAL_RUN_STEP;
 			gameObject.transform.parent.transform.localPosition = tr;
 		}
 	}
