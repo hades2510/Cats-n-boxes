@@ -21,11 +21,11 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: 2
-    aniso: 3
+    aniso: 4
     mipBias: -1
     wrapMode: -1
   nPOTScale: 1
@@ -39,31 +39,31 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 0
-  textureType: -1
+  textureType: 5
   buildTargetSettings:
   - buildTarget: Web
     maxTextureSize: 512
-    textureFormat: -1
+    textureFormat: 12
     compressionQuality: 50
   - buildTarget: iPhone
     maxTextureSize: 256
-    textureFormat: -1
+    textureFormat: 33
     compressionQuality: 50
   - buildTarget: Android
     maxTextureSize: 256
-    textureFormat: -1
+    textureFormat: 13
     compressionQuality: 50
   - buildTarget: BlackBerry
     maxTextureSize: 256
-    textureFormat: -1
+    textureFormat: 13
     compressionQuality: 50
   - buildTarget: Windows Store Apps
     maxTextureSize: 256
-    textureFormat: -1
+    textureFormat: 12
     compressionQuality: 50
   - buildTarget: WP8
     maxTextureSize: 256
-    textureFormat: -1
+    textureFormat: 12
     compressionQuality: 50
   spriteSheet:
     sprites: []
