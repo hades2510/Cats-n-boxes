@@ -5,6 +5,8 @@ namespace CatsBoxes
 {
 	public class CatController : MonoBehaviour {
 
+		private float speed = 1.0f;
+
 		public Animation animation;
 
 		// Use this for initialization
@@ -17,7 +19,8 @@ namespace CatsBoxes
 		// Update is called once per frame
 		void Update () {
 			var tr = gameObject.transform.parent.transform.localPosition;
-			tr.z += 0.01f;
+
+			tr.z += Time.deltaTime*speed;
 			gameObject.transform.parent.transform.localPosition = tr;
 		}
 	}
