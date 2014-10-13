@@ -50,8 +50,8 @@ TextureImporter:
     textureFormat: -1
     compressionQuality: 50
   - buildTarget: Android
-    maxTextureSize: 256
-    textureFormat: -1
+    maxTextureSize: 512
+    textureFormat: -3
     compressionQuality: 50
   - buildTarget: BlackBerry
     maxTextureSize: 256
