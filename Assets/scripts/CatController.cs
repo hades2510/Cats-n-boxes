@@ -18,8 +18,8 @@ namespace CatsBoxes
 		}
 
 		private Dictionary<State, float> stateToSpeed = new Dictionary<State, float>(){
-			{ State.RUNNING, 1f },
-			{ State.JUMPING_FORWARD, 0.8f },
+			{ State.RUNNING, 15f },
+			{ State.JUMPING_FORWARD, 12f },
 			{ State.JUMPING_UP, 0.0f }
 		};
 
