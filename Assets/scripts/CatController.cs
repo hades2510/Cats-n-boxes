@@ -9,46 +9,30 @@ namespace CatsBoxes
 		private const string RunAnimation = "A_run";
 		private const string JumpAnimation = "A_jump_all";
 		private const string SlideAnimation = "A_play";
+		private Animator animationController;
 
 		private enum State
 		{
 			RUNNING,
 			JUMPING_FORWARD,
-			JUMPING_UP
+			JUMPING_UP,
+			SLIDING
 		}
 
 		private Dictionary<State, float> stateToSpeed = new Dictionary<State, float>(){
 			{ State.RUNNING, 15f },
-			{ State.JUMPING_FORWARD, 12f },
+			{ State.JUMPING_FORWARD, 15f },
+			{ State.SLIDING, 17f },
 			{ State.JUMPING_UP, 0.0f }
 		};
 
 		private State state;
 
-		public Animation animation;
-
 		// Use this for initialization
 		void Start () {
-			animation.wrapMode = WrapMode.Loop;
-
-			var jumpAnim = animation.GetClip(JumpAnimation);
-			jumpAnim.AddEvent(new AnimationEvent() {functionName="jumpAnimationFinished", time=jumpAnim.length});
-
-			var slideAnim = animation.GetClip(SlideAnimation);
-			slideAnim.AddEvent(new AnimationEvent() {functionName="jumpAnimationFinished", time=slideAnim.length});
-
-			animation.Play (RunAnimation);
-			animation.wrapMode = WrapMode.Loop;
+			animationController = this.GetComponent<Animator> ();
 
 			AppEvents.SwipeEvent += DoAction;
-
-			state = State.RUNNING;
-		}
-
-		private void jumpAnimationFinished()
-		{
-			animation.CrossFade (RunAnimation);
-			animation.wrapMode = WrapMode.Loop;
 
 			state = State.RUNNING;
 		}
@@ -57,18 +41,16 @@ namespace CatsBoxes
 		{
 			if (direction==SwipeRecognizer.SwipeDirection.Up)
 			{
-				animation.Play (JumpAnimation);
-				animation.wrapMode = WrapMode.Once;
+				animationController.SetTrigger("Jump");
 
 				state = State.JUMPING_FORWARD;
 			}
 			else
 			if (direction==SwipeRecognizer.SwipeDirection.Down)
 			{
-				animation.Play (SlideAnimation);
-				animation.wrapMode = WrapMode.Once;
+				animationController.SetTrigger("Slide_Up");
 
-				state = State.JUMPING_UP;
+				state = State.SLIDING;
 			}
 		}
 		
