@@ -10,6 +10,9 @@ namespace CatsBoxes
 		private const string JumpAnimation = "A_jump_all";
 		private const string SlideAnimation = "A_play";
 		private Animator animationController;
+		public float StrafeForceX = 3000f;		
+		public float StrafeForceY = 200f;
+		public float JumpForceY = 4000f;
 
 		private enum State
 		{
@@ -42,15 +45,29 @@ namespace CatsBoxes
 			if (direction==SwipeRecognizer.SwipeDirection.Up)
 			{
 				animationController.SetTrigger("Jump");
-
+				
+				this.rigidbody.AddForce(0f, JumpForceY, 0f);
 				state = State.JUMPING_FORWARD;
 			}
 			else
 			if (direction==SwipeRecognizer.SwipeDirection.Down)
 			{
 				animationController.SetTrigger("Slide_Up");
-
 				state = State.SLIDING;
+			}
+			else
+				if (direction==SwipeRecognizer.SwipeDirection.Left)
+			{
+				animationController.SetTrigger("StrafeLeft");
+				this.rigidbody.AddForce(-StrafeForceX,StrafeForceY,0f);
+				state = State.RUNNING;
+			}
+			else
+				if (direction==SwipeRecognizer.SwipeDirection.Right)
+			{
+				animationController.SetTrigger("StrafeRight");
+				this.rigidbody.AddForce(StrafeForceX,StrafeForceY,0f);
+				state = State.RUNNING;
 			}
 		}
 		

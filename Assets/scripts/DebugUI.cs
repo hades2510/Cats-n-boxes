@@ -30,6 +30,14 @@ namespace CatsBoxes {
 			{
 				AppEvents.OnSwipe(SwipeRecognizer.SwipeDirection.Down);
 			}
+			if(GUI.Button (new Rect(width-100,250,100,40) , "SwipeLeft") )
+			{
+				AppEvents.OnSwipe(SwipeRecognizer.SwipeDirection.Left);
+			}
+			if(GUI.Button (new Rect(width-100,290,100,40) , "SwipeRight") )
+			{
+				AppEvents.OnSwipe(SwipeRecognizer.SwipeDirection.Right);
+			}
 		}
 	}
 }
